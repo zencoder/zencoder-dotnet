@@ -1,0 +1,4 @@
+*.user
+*.suo
+/zencoder-dotnet/bin
+/zencoder-dotnet/obj
