@@ -7,11 +7,11 @@ namespace ZencoderDotNet
 {
     public class Zencoder
     {
-        public static string BaseUrl = "https://zencoder-qa.heroku.com/api";
+        public static string base_url = "https://zencoder-qa.heroku.com/api";
         public static string format = "json";
         private static string apiKey;
 
-        public static string ApiKey
+        public static string api_keys
         {
             get
             {
