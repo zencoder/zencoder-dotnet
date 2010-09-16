@@ -11,7 +11,7 @@ namespace ZencoderDotNet
         public static string format = "json";
         private static string apiKey;
 
-        public static string api_keys
+        public static string api_key
         {
             get
             {

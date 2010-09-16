@@ -69,7 +69,7 @@ namespace ZencoderDotNet
 
         private HttpWebRequest webRequest;
 
-        public Request(string Url, string Method, string Body, string Format = null)
+        public Request(string Url, string Method, string Body = null, string Format = null)
         {
             // Setting private variables directly so setupRequest() isn't called each time
             requestUrl = Url;
@@ -91,20 +91,24 @@ namespace ZencoderDotNet
             webRequest.Proxy = null;
             webRequest.Method = method;
             setRequestHeaders();
-            setRequestBody();
+            if (body != null && method != "GET")
+            {
+                setRequestBody();
+            }
+            
         }
 
         private void setRequestHeaders()
         {
             if (format == "xml")
             {
-                webRequest.ContentType = "application/xml";
                 webRequest.Accept = "application/xml";
+                webRequest.ContentType = "application/xml";
             }
             else
             {
                 webRequest.Accept = "application/json";
-                webRequest.ContentType = "application/json";
+                webRequest.ContentType = "application/json";            
             }
         }
 
