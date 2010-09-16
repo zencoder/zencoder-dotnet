@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 
 namespace ZencoderDotNet
 {
@@ -25,6 +28,20 @@ namespace ZencoderDotNet
                 }
             }
             set { apiKey = value; }
+        }
+
+        public static object deserializeJson(Type type, string json)
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(json);
+
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(type);
+            object job;
+            using (MemoryStream s = new MemoryStream(bytes))
+            {
+                job = serializer.ReadObject(s);
+            }
+
+            return job;
         }
     }
 }

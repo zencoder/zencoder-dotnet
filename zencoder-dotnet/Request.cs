@@ -20,6 +20,7 @@ namespace ZencoderDotNet
                 setupRequest();
             }
         }
+
         private string requestMethod;
         public string method
         {
