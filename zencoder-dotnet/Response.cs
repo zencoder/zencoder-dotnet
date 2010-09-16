@@ -13,6 +13,7 @@ namespace ZencoderDotNet
         public string body
         {
             get { return responseBody; }
+            set { responseBody = value; }
         }
 
         private string responseFormat;
