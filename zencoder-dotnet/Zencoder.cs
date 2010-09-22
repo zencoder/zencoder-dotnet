@@ -10,6 +10,8 @@ namespace ZencoderDotNet
 {
     public class Zencoder
     {
+        public static string library_name { get { return "ZencoderDotNet"; } }
+        public static string library_version { get { return "1.0.0.0"; } }
         public static string base_url = "https://app.zencoder.com/api";
         public static string format = "json";
         private static string apiKey;

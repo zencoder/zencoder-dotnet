@@ -111,6 +111,8 @@ namespace ZencoderDotNet
                 webRequest.Accept = "application/json";
                 webRequest.ContentType = "application/json";            
             }
+            webRequest.Headers.Add("Zencoder-Library-Name: " + Zencoder.library_name);
+            webRequest.Headers.Add("Zencoder-Library-Version: " + Zencoder.library_version);
         }
 
         private void setRequestBody()

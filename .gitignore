@@ -2,3 +2,7 @@
 *.suo
 /zencoder-dotnet/bin
 /zencoder-dotnet/obj
+/TestResults
+*.testsettings
+/zencoder-dotnetTest/bin
+/zencoder-dotnetTest/obj
