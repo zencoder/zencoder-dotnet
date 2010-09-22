@@ -15,16 +15,31 @@ Add "**using ZencoderDotNet;**" / "**using ZencoderDotNet.Api;**" to the top of 
 Create a json or xml string with the information for the job you want processed, e.g:
 
 JSON:
-	{
-	  "api_key": "93h630j1dsyshjef620qlkavnmzui3",
-	  "input": "s3://bucket-name/file-name.avi"
-	}
+	string json = @"{
+	  ""api_key"": ""93h630j1dsyshjef620qlkavnmzui3"",
+	  ""input"": ""s3://bucket-name/file-name.avi""
+	}"
 
 XML:
-	<api-request>
+	string xml = @"<api-request>
 	  <api_key>93h630j1dsyshjef620qlkavnmzui3</api_key>
 	  <input>s3://bucket-name/file-name.avi</input>
-	</api-request>
+	</api-request>"
+
+Then call the create method of ZencoderDotNet.Api.Job with the format of the string:
+	
+	Job job = Job.create(json, "json")
+or
+	Job job = Job.create(xml, "xml")
+
+This sends a request to the Zencoder API to create a new job, then deserializes the response from Zencoder into an instance of the Job class with some information about the job you created:
+
+	job.test // true
+	job.id // 12345
+	job.outputs[0].url // s3://bucket-name/output-file-name.mp4
+
+
+	
 
 
 
