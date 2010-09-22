@@ -1,4 +1,4 @@
-﻿# Zencoder
+# Zencoder
 
 The class library for interacting with the API on [Zencoder](http://zencoder.com).
 
@@ -15,16 +15,16 @@ Add "**using ZencoderDotNet;**" / "**using ZencoderDotNet.Api;**" to the top of 
 Create a json or xml string with the information for the job you want processed, e.g:
 
 JSON:
-	@"{
-	""api_key"": ""93h630j1dsyshjef620qlkavnmzui3"",
-	""input"": ""s3://bucket-name/file-name.avi""
-	}"
+	{
+	  "api_key": "93h630j1dsyshjef620qlkavnmzui3",
+	  "input": "s3://bucket-name/file-name.avi"
+	}
 
 XML:
-	@"&lt;api-request&gt;
-	&lt;api_key&gt;93h630j1dsyshjef620qlkavnmzui3&lt;/api_key&gt;
-	&lt;input&gt;s3://bucket-name/file-name.avi</input&gt;
-	&lt;/api-request&gt;"
+	<api-request>
+	  <api_key>93h630j1dsyshjef620qlkavnmzui3</api_key>
+	  <input>s3://bucket-name/file-name.avi</input>
+	</api-request>
 
 
 
