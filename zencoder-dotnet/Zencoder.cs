@@ -10,7 +10,7 @@ namespace ZencoderDotNet
 {
     public class Zencoder
     {
-        public static string base_url = "https://zencoder-qa.heroku.com/api";
+        public static string base_url = "https://app.zencoder.com/api";
         public static string format = "json";
         private static string apiKey;
 
@@ -32,15 +32,18 @@ namespace ZencoderDotNet
 
         public static object deserialize(Type type, Response response)
         {
-            if (response.format == "xml")
+            return deserialize(type, response.body, response.format);
+        }
+
+        public static object deserialize(Type type, string body, string format)
+        {
+            if (format == "xml")
             {
-                Console.WriteLine("Deserializing XML: " + response.body);
-                return deserializeXml(type, response.body);
+                return deserializeXml(type, body);
             }
             else
             {
-                Console.WriteLine("Deserializing JSON: " + response.body);
-                return deserializeJson(type, response.body);
+                return deserializeJson(type, body);
             }
         }
         
